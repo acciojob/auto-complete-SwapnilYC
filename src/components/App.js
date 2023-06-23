@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './../styles/App.css';
 
 const fruits = ["apple", "banana", "cherry", "date", "elderberry", "fig"];
@@ -9,9 +9,11 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [filteredItem, setFilteredItem] = useState([...fruits]);
 
-  useState(() => {
-    if (!search) setFilteredItem([...fruits]);
-    else setFilteredItem = filteredItem.filter((fruit) => fruit.includes(search));
+  useEffect(() => {
+    // if (!search) setFilteredItem([...fruits]);
+    // else 
+    let filteredFruits = fruits.filter((fruit) => fruit.includes(search));
+    setFilteredItem(filteredFruits);
   }, [search])
 
   return (
